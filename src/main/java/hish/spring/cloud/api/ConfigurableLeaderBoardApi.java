@@ -10,10 +10,11 @@ import hish.spring.cloud.domains.LeaderboardConfig;
 import lombok.AllArgsConstructor;
 
 /**
+ * Spring Cloud Config Client - Find REST service with Spring Cloud Config
  * @author shisham
  *
  */
-@Component
+//@Component
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class ConfigurableLeaderBoardApi extends AbstractLeaderBoardApi {
 	private final LeaderboardConfig config;

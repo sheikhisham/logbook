@@ -1,0 +1,14 @@
+#leaderboard:
+#  url: http://localhost:8083
+ ######################################################################
+ #              Spring Cloud config - client                          #
+ ######################################################################
+
+server:
+  port: 8089
+
+# /refresh endpoint is to refresh spring cloud config
+# to disable /refresh endpoint's security
+management:
+  security:
+    enabled: false

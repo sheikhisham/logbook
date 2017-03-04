@@ -12,4 +12,6 @@ import hish.spring.cloud.domains.Lifter;
  */
 public interface LeaderBoardApi {
 	public void recordLift(Lifter lifter, Lift lift);
+	
+	public String answerme();
 }

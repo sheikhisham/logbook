@@ -20,8 +20,8 @@ import lombok.RequiredArgsConstructor;
  * @author shisham
  *
  */
-@Component
-@Configuration
+//@Component
+//@Configuration
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DiscoveryLeaderBoardApi extends AbstractLeaderBoardApi {
 	

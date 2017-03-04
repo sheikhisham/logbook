@@ -22,3 +22,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     registerWithEureka: false
+    instaneid: leaderboard
+    
+logbook:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 10000    

@@ -1,13 +1,14 @@
 /**
  * 
  */
-package hish.spring.cloud.api;
+package hish.spring.cloud.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import hish.spring.cloud.api.LeaderBoardApi;
 import hish.spring.cloud.domains.Lift;
 import hish.spring.cloud.domains.Lifter;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @Slf4j
-public class LeaderBoardResource {
+public class LogBookResource {
 	
 	@Autowired
 	LeaderBoardApi leaderBoardApi;
@@ -34,5 +35,10 @@ public class LeaderBoardResource {
 		
 		leaderBoardApi.recordLift(lifter, lift);
 		return "success from logbook";
+	}
+	
+	@RequestMapping(value = "/answerme", method = RequestMethod.GET)
+	public String answerme() {
+		return leaderBoardApi.answerme();
 	}
 }

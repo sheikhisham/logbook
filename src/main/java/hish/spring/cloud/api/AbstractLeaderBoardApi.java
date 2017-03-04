@@ -5,6 +5,7 @@ package hish.spring.cloud.api;
 
 import java.net.URI;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -36,17 +37,22 @@ public abstract class AbstractLeaderBoardApi implements LeaderBoardApi {
 	 */
 	@Override
 	public void recordLift(Lifter lifter, Lift lift) {
-		URI url = URI.create(String.format("%s/lifts", getLeaderBoardAddress()));
-		
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		params.set("exerciseName", lift.getDescription());
         params.set("lifterName", lifter.getFullName());
         params.set("reps", Integer.toString(lift.getReps()));
         params.set("weight", Double.toString(lift.getWeight()));
         
+        URI url = URI.create(String.format("%s/lifts", getLeaderBoardAddress()));
         restTemplate.postForLocation(url, params);
         
         log.debug("Posted : {}", url, params);
 	}
 
+	@Override
+	public String answerme() {
+		URI uri = URI.create(String.format("%s/answerme", getLeaderBoardAddress()));
+		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
+		return result.getBody();
+	}
 }
